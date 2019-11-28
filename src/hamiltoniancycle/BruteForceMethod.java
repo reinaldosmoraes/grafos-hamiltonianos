@@ -1,11 +1,11 @@
 package hamiltoniancycle;
 
-public class HamiltonianCycle {
+public class BruteForceMethod {
     private int[][] adjcentMatrix;
     private int[] circuit;
     private int numberOfVertices;
 
-    private HamiltonianCycle() {
+    private BruteForceMethod() {
         adjcentMatrix = new int[][]{
         //       0 1 2 3 4 5 6 7
                 {0,1,1,0,0,0,1,0},// 0
@@ -73,6 +73,6 @@ public class HamiltonianCycle {
     }
 
     public static void main(String[] args) {
-        new HamiltonianCycle();
+        new BruteForceMethod();
     }
 }

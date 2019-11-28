@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40bb70ae-8de8-4398-9f91-9af6e18df456" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/hamiltoniancycle/BruteForceMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/grafo-hamiltoniano/hamiltoniancycle/HamiltonianCycle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/grafo-hamiltoniano/hamiltoniancycle/HamiltonianCycle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hamiltoniancycle/HamiltonianCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hamiltoniancycle/HamiltonianCycle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/grafo-hamiltoniano/hamiltoniancycle/HamiltonianCycle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hamiltoniancycle/HamiltonianCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hamiltoniancycle/AcademyMethods.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +26,17 @@
   </component>
   <component name="ProjectId" id="1Tkt8stFxzl7pCHj3SPJmrUFxWA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="hamiltoniancycle" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -36,9 +49,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="HamiltonianCycle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hamiltoniancycle.HamiltonianCycle" />
+  <component name="RunManager" selected="Application.AcademyMethods">
+    <configuration name="AcademyMethods" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hamiltoniancycle.AcademyMethods" />
+      <module name="grafo-hamiltoniano" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hamiltoniancycle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BruteForceMethod" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hamiltoniancycle.BruteForceMethod" />
       <module name="grafo-hamiltoniano" />
       <extension name="coverage">
         <pattern>
@@ -52,7 +78,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HamiltonianCycle" />
+        <item itemvalue="Application.AcademyMethods" />
+        <item itemvalue="Application.BruteForceMethod" />
       </list>
     </recent_temporary>
   </component>
@@ -81,5 +108,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/hamiltoniancycle/AcademyMethods.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
