@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40bb70ae-8de8-4398-9f91-9af6e18df456" name="Default Changelist" comment="" />
+    <list default="true" id="40bb70ae-8de8-4398-9f91-9af6e18df456" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/grafo-hamiltoniano/hamiltoniancycle/HamiltonianCycle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/grafo-hamiltoniano/hamiltoniancycle/HamiltonianCycle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hamiltoniancycle/HamiltonianCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hamiltoniancycle/HamiltonianCycle.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,26 +74,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/hamiltoniancycle/HamiltonianCycle.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/hamiltoniancycle/HamiltonianCycle.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -1,9 +1,11 @@
 package hamiltoniancycle;
 
 public class HamiltonianCycle {
-    int adjcentMatrix[][], circuit[], numberOfVertices;
+    private int[][] adjcentMatrix;
+    private int[] circuit;
+    private int numberOfVertices;
 
-    public HamiltonianCycle() {
+    private HamiltonianCycle() {
         adjcentMatrix = new int[][]{
         //       0 1 2 3 4 5 6 7
                 {0,1,1,0,0,0,1,0},// 0
@@ -21,7 +23,7 @@ public class HamiltonianCycle {
         hamiltonian(1);
     }
 
-    public void nextValue(int k){
+    private void nextValue(int k){
         while(true){
             circuit[k] = (circuit[k] + 1) % numberOfVertices;
             if(circuit[k] == 0) return;
@@ -45,14 +47,24 @@ public class HamiltonianCycle {
     }
 
     //TODO: imprimir grafo proibido
-    public void hamiltonian(int k){
+    private void hamiltonian(int k){
         while(true){
             nextValue(k);
-            if(circuit[k] == 0) { return; }
+            if(circuit[k] == 0) {
+                System.out.print("Clico proibido: ");
+                for(int i = 0; i < numberOfVertices; i++) {
+                    if (circuit[i] != 0) {
+                        System.out.print((circuit[i]) + " ");
+                    }
+                }
+                System.out.println();
+                return;
+            }
             if(k == numberOfVertices - 1){
                 System.out.print("Hamiltonian Cycle: ");
-                for(int i = 0; i < numberOfVertices; i++)
+                for(int i = 0; i < numberOfVertices; i++) {
                     System.out.print((circuit[i]) + " ");
+                }
                 System.out.println();
             } else {
                 hamiltonian(k + 1);
