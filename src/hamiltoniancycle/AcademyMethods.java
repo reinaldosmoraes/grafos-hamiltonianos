@@ -2,10 +2,17 @@ package hamiltoniancycle;
 
 public class AcademyMethods {
     private int[][] adjcentMatrix;
-    private int[] circuit, degree;
+    private int[] circuit, verticesDegree;
     private int numberOfVertices;
 
     private AcademyMethods() {
+        initializeData();
+
+        System.out.println("Ore`s Method: " + oreMethod(adjcentMatrix));
+        System.out.println("Dirac`s Method: " + diracMethod(verticesDegree, numberOfVertices));
+    }
+
+    private void initializeData() {
         adjcentMatrix = new int[][]{
         //       0 1 2 3 4 5 6 7
                 {0,1,1,0,0,0,1,0},// 0
@@ -19,48 +26,39 @@ public class AcademyMethods {
         };
         numberOfVertices = adjcentMatrix.length;
         circuit = new int[numberOfVertices];
-        degree = new int[numberOfVertices];
+        verticesDegree = new int[numberOfVertices];
         circuit[0] = 0;
         countVerticesDegrees(adjcentMatrix);
-        System.out.println(oreMethod(adjcentMatrix));
-        diracMethod();
     }
 
-    private void countVerticesDegrees(int[][] m){
+    private void countVerticesDegrees(int[][] adjcentMatrix){
         for (int i =0; i<numberOfVertices ;i++){
             int count = 0;
             for (int j =0; j < numberOfVertices ; j++){
-                count += m[i][j];
+                count += adjcentMatrix[i][j];
             }
-            degree[i] = count;
+            verticesDegree[i] = count;
         }
-        //printDegree();
     }
 
-    private boolean oreMethod(int[][] m){
+    private boolean oreMethod(int[][] adjcentMatrix){
         if(numberOfVertices < 3) return false;
         for (int i =0; i < numberOfVertices ;i++){
             for (int j =0; j < numberOfVertices ; j++) {
-                if (m[i][j] == 0 && i != j && degree[i] + degree[j] < numberOfVertices) return false;
+                if (adjcentMatrix[i][j] == 0 && i != j && verticesDegree[i] + verticesDegree[j] < numberOfVertices) return false;
             }
         }
         return true;
     }
 
-    private boolean diracMethod(){
+    private boolean diracMethod(int[] verticesDegree, int numberOfVertices){
         if(numberOfVertices < 3) return false;
-        double half = numberOfVertices/2;
-        for (Integer i: degree) {
-            if(i < half) return false;
+        double half = numberOfVertices/2.0;
+        for (Integer i: verticesDegree) {
+            if(i < half)
+                return false;
         }
         return true;
-    }
-
-    private void printDegree(){
-        for (Integer i: degree
-        ) {
-            System.out.print(i.toString() + ' ');
-        }
     }
 
     public static void main(String[] args) {
