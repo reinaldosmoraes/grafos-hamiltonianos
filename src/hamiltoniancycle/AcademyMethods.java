@@ -11,7 +11,7 @@ public class AcademyMethods {
         circuit = new int[numberOfVertices];
         verticesDegree = new int[numberOfVertices];
         circuit[0] = 0;
-        countVerticesDegrees(adjcentMatrix);
+        countVerticesDegrees();
     }
 
     private void initializeAdjcentMatrix() {
@@ -28,17 +28,17 @@ public class AcademyMethods {
         };
     }
 
-    private void countVerticesDegrees(int[][] adjcentMatrix){
-        for (int i =0; i<numberOfVertices ;i++){
+    private void countVerticesDegrees(){
+        for (int i = 0; i < numberOfVertices; i++){
             int count = 0;
-            for (int j =0; j < numberOfVertices ; j++){
+            for (int j = 0; j < numberOfVertices ; j++){
                 count += adjcentMatrix[i][j];
             }
             verticesDegree[i] = count;
         }
     }
 
-    private boolean oreMethod(int[][] adjcentMatrix){
+    private boolean oreMethod(){
         if(numberOfVertices < 3) return false;
         for (int i = 0; i < numberOfVertices ; i++){
             for (int j = 0; j < numberOfVertices ; j++) {
@@ -48,7 +48,7 @@ public class AcademyMethods {
         return true;
     }
 
-    private boolean diracMethod(int[] verticesDegree, int numberOfVertices){
+    private boolean diracMethod(){
         if(numberOfVertices < 3) return false;
         double half = numberOfVertices / 2.0;
         for (Integer i: verticesDegree) {
@@ -60,8 +60,8 @@ public class AcademyMethods {
 
     public static void main(String[] args) {
         AcademyMethods academyMethods = new AcademyMethods();
-        System.out.println("Ore`s Method: " + academyMethods.oreMethod(adjcentMatrix));
-        System.out.println("Dirac`s Method: " + academyMethods.diracMethod(verticesDegree, numberOfVertices));
+        System.out.println("Ore`s Method: " + academyMethods.oreMethod());
+        System.out.println("Dirac`s Method: " + academyMethods.diracMethod());
     }
 
 }
