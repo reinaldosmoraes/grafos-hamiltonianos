@@ -141,8 +141,10 @@ public class AcademyMethods {
 
     public static void main(String[] args) {
         AcademyMethods academyMethods = new AcademyMethods();
+        System.out.println("Necessary Conditions");
         System.out.println("Conex Graph: " + academyMethods.conexGraph());
         System.out.println("Biconnected Graph: " + academyMethods.biconectedMethod());
+        System.out.println("Suffient Conditions");
         System.out.println("Ore`s Method: " + academyMethods.oreMethod());
         System.out.println("Dirac`s Method: " + academyMethods.diracMethod());
         System.out.println("Complete Graph: " + academyMethods.completeGraph());

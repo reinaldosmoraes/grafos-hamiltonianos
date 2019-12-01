@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40bb70ae-8de8-4398-9f91-9af6e18df456" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/grafo-hamiltoniano/META-INF/grafo-hamiltoniano.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/grafo-hamiltoniano/hamiltoniancycle/AcademyMethods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/grafo-hamiltoniano/hamiltoniancycle/AcademyMethods.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hamiltoniancycle/AcademyMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hamiltoniancycle/AcademyMethods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574015764965</updated>
-      <workItem from="1575226743161" duration="6546000" />
+      <workItem from="1575226743161" duration="6953000" />
     </task>
     <servers />
   </component>
