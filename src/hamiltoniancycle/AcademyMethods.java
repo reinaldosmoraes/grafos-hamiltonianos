@@ -107,6 +107,18 @@ public class AcademyMethods {
         return isConex;
     }
 
+    public boolean biconectedMethod(){
+
+        for(int i = 0; i < numberOfVertices; i++) {
+            vis[i] = false; parents[i] = -1;
+        }
+
+        if(findArticulationPointMethod(0))  return false;  //No articulation Point
+        for(int i = 0; i < numberOfVertices; i++)   if (!vis[i]) return false;    //Exists nodes not visited
+
+        return true;
+    }
+
     public boolean findArticulationPointMethod(int start){
         int dfsChild = 0;
         time = 0;
@@ -125,18 +137,6 @@ public class AcademyMethods {
             }
         }
         return false;
-    }
-
-    public boolean biconectedMethod(){
-
-        for(int i = 0; i < numberOfVertices; i++) {
-            vis[i] = false; parents[i] = -1;
-        }
-
-        if(findArticulationPointMethod(0))  return false;  //No articulation Point
-        for(int i = 0; i < numberOfVertices; i++)   if (!vis[i]) return false;    //Exists nodes not visited
-
-        return true;
     }
 
     public static void main(String[] args) {
