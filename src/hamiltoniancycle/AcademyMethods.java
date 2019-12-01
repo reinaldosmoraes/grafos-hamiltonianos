@@ -1,20 +1,27 @@
 package hamiltoniancycle;
 
+import java.time.Duration;
+import java.time.Instant;
+import java.util.concurrent.TimeUnit;
+
 import static java.lang.Integer.min;
 
 public class AcademyMethods {
     private static int[][] adjcentMatrix;
     private static int[] circuit, verticesDegree;
-    private static int numberOfVertices, time;
-    private boolean[] vis;
+    private static int numberOfVertices;
+    private boolean[] visited;
     private int[] discoveredNodes, lowerNodes, parents;
+    private static Instant start = Instant.now();
+    private static Instant end = Instant.now();
+    private static Runtime runtime = Runtime.getRuntime();
 
     private AcademyMethods() {
         initializeAdjcentMatrix();
         numberOfVertices = adjcentMatrix.length;
         circuit = new int[numberOfVertices];
         verticesDegree = new int[numberOfVertices];
-        vis = new boolean[numberOfVertices];
+        visited = new boolean[numberOfVertices];
         discoveredNodes = new int[numberOfVertices];
         lowerNodes = new int[numberOfVertices];
         parents = new int[numberOfVertices];
@@ -107,28 +114,29 @@ public class AcademyMethods {
         return isConex;
     }
 
-    public boolean biconectedMethod(){
-
+    private boolean biconectedMethod(){
         for(int i = 0; i < numberOfVertices; i++) {
-            vis[i] = false; parents[i] = -1;
+            visited[i] = false; parents[i] = -1;
         }
 
         if(findArticulationPointMethod(0))  return false;  //No articulation Point
-        for(int i = 0; i < numberOfVertices; i++)   if (!vis[i]) return false;    //Exists nodes not visited
 
+        for(int i = 0; i < numberOfVertices; i++) {
+            if (!visited[i]) return false;    //Exists nodes not visited
+        }
         return true;
     }
 
-    public boolean findArticulationPointMethod(int start){
+    private boolean findArticulationPointMethod(int start){
         int dfsChild = 0;
-        time = 0;
-        vis[start] = true;
+        int time = 0;
+        visited[start] = true;
         discoveredNodes[start] = lowerNodes[start] = time++;
 
         for(int v = 0; v < numberOfVertices; v++) {
-            boolean check = (adjcentMatrix[start][v] == 1)?true:false;
+            boolean check = adjcentMatrix[start][v] == 1;
             if(check){
-                if(!vis[v]) {
+                if(!visited[v]) {
                     dfsChild++; parents[v] = start;
                     if(findArticulationPointMethod(v))  return true;
                     lowerNodes[start] = min(lowerNodes[start], lowerNodes[v]);
@@ -139,15 +147,88 @@ public class AcademyMethods {
         return false;
     }
 
+    private long initMetrics() {
+        start = Instant.now();
+        runtime = Runtime.getRuntime();
+        return runtime.maxMemory() - runtime.freeMemory();
+    }
+
+    private void printMetrics(long initUsedMemory) {
+        // Time
+        end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        System.out.println("Time taken: " + timeElapsed.toMillis() + " milliseconds");
+
+        // Memory
+        System.out.println("Used memory: " + (runtime.maxMemory() - runtime.freeMemory() - initUsedMemory) + "\n");
+    }
+
+    private void nextValue(int k){
+        while(true){
+            circuit[k] = (circuit[k] + 1) % numberOfVertices;
+            if(circuit[k] == 0) return;
+            if(adjcentMatrix[circuit[k - 1]][circuit[k]] != 0){
+                int j;
+                for(j = 0; j < k; j++){
+                    if(circuit[k] == circuit[j]){
+                        break;
+                    }
+                }
+                if(j == k){
+                    if(k < numberOfVertices - 1 ){
+                        return;
+                    }
+                    if((k == numberOfVertices - 1) && (adjcentMatrix[circuit[k]][circuit[0]] != 0)){
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    //TODO: imprimir grafo proibido
+    private void hamiltonian(int k){
+        while(true){
+            nextValue(k);
+            if(circuit[k] == 0) {
+//                System.out.print("Clico proibido: ");
+                for(int i = 0; i < numberOfVertices; i++) {
+                    if (circuit[i] != 0) {
+//                        System.out.print((circuit[i]) + " ");
+                    }
+                }
+//                System.out.println();
+                return;
+            }
+            if(k == numberOfVertices - 1){
+                System.out.print("Hamiltonian Cycle: ");
+                for(int i = 0; i < numberOfVertices; i++) {
+                    System.out.print((circuit[i]) + " ");
+                }
+                System.out.println();
+            } else {
+                hamiltonian(k + 1);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         AcademyMethods academyMethods = new AcademyMethods();
-        System.out.println("Necessary Conditions");
-        System.out.println("Conex Graph: " + academyMethods.conexGraph());
-        System.out.println("Biconnected Graph: " + academyMethods.biconectedMethod());
-        System.out.println("Suffient Conditions");
-        System.out.println("Ore`s Method: " + academyMethods.oreMethod());
-        System.out.println("Dirac`s Method: " + academyMethods.diracMethod());
-        System.out.println("Complete Graph: " + academyMethods.completeGraph());
+
+        long initTime = academyMethods.initMetrics();
+
+        if (!academyMethods.conexGraph() || !academyMethods.biconectedMethod()) {
+            System.out.println("O grafo NÃO é hamiltoniano.");
+        }
+
+        if (academyMethods.diracMethod() || academyMethods.oreMethod() || academyMethods.completeGraph()) {
+            System.out.println("O grafo é hamiltoniano.");
+        }
+
+        academyMethods.hamiltonian(1);
+
+        academyMethods.printMetrics(initTime);
+
     }
 
 }
