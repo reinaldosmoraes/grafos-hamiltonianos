@@ -51,13 +51,13 @@ public class BruteForceMethod {
         while(true){
             nextValue(k);
             if(circuit[k] == 0) {
-                System.out.print("Clico proibido: ");
+//                System.out.print("Clico proibido: ");
                 for(int i = 0; i < numberOfVertices; i++) {
                     if (circuit[i] != 0) {
-                        System.out.print((circuit[i]) + " ");
+//                        System.out.print((circuit[i]) + " ");
                     }
                 }
-                System.out.println();
+//                System.out.println();
                 return;
             }
             if(k == numberOfVertices - 1){
@@ -73,6 +73,8 @@ public class BruteForceMethod {
     }
 
     public static void main(String[] args) {
+
+
         new BruteForceMethod();
     }
 }
