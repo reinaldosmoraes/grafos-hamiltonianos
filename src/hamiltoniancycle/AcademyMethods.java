@@ -30,17 +30,17 @@ public class AcademyMethods {
     }
 
     private void initializeAdjcentMatrix() {
-        adjcentMatrix = new int[][]{
-        //       0 1 2 3 4 5 6 7
-                {0,1,1,0,0,0,1,0},// 0
-                {1,0,1,0,0,0,0,1},// 1
-                {1,1,0,1,0,1,0,0},// 2
-                {0,0,1,0,1,0,0,0},// 3
-                {0,0,0,1,0,1,0,0},// 4
-                {0,0,1,0,1,0,1,0},// 5
-                {1,0,0,0,0,1,0,1},// 6
-                {0,1,0,0,0,0,1,0} // 7
-        };
+//        adjcentMatrix = new int[][]{
+//        //       0 1 2 3 4 5 6 7
+//                {0,1,1,0,0,0,1,0},// 0
+//                {1,0,1,0,0,0,0,1},// 1
+//                {1,1,0,1,0,1,0,0},// 2
+//                {0,0,1,0,1,0,0,0},// 3
+//                {0,0,0,1,0,1,0,0},// 4
+//                {0,0,1,0,1,0,1,0},// 5
+//                {1,0,0,0,0,1,0,1},// 6
+//                {0,1,0,0,0,0,1,0} // 7
+//        };
 
 //        Complete graph example
 //        adjcentMatrix = new int[][]{
@@ -57,6 +57,17 @@ public class AcademyMethods {
 //                {0,0,0,0},
 //                {1,1,0,0}
 //        };
+
+        //presentation exmaple
+        adjcentMatrix = new int[][]{
+                {0,1,1,1,1,1,1}, //0
+                {1,0,1,1,0,1,0}, //1
+                {1,1,0,0,0,0,0}, //2
+                {0,1,0,0,1,1,0}, //3
+                {1,0,0,1,0,0,0}, //4
+                {1,1,0,1,0,1,1}, //5
+                {1,0,0,0,0,5,0}, //6
+        };
     }
 
     private void countVerticesDegrees() {
@@ -219,10 +230,10 @@ public class AcademyMethods {
 
         if (!academyMethods.conexGraph() || !academyMethods.biconectedMethod()) {
             System.out.println("O grafo NÃO é hamiltoniano.");
-        }
-
-        if (academyMethods.diracMethod() || academyMethods.oreMethod() || academyMethods.completeGraph()) {
+        } else if (academyMethods.diracMethod() || academyMethods.oreMethod() || academyMethods.completeGraph()) {
             System.out.println("O grafo é hamiltoniano.");
+        } else {
+            System.out.println("Não pode-se afirmar se é hamiltoniano");
         }
 
         academyMethods.hamiltonian(1);
